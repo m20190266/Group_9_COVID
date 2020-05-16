@@ -1,1 +1,3 @@
-# Group_9_COVID
+# Deploying your Dash app online
+
+Enjoy at https://dashexample.herokuapp.com/
