@@ -7,19 +7,18 @@ import numpy as np
 
 # Dataset 'Processing'
 
-df_emissions = pd.read_csv('emission_full.csv')
+df_covid = pd.read_csv('owid-covid-data.csv')
 
-df_emission_0 = df_emissions.loc[df_emissions['year']==2000]
 
 # Building our Graphs (nothing new here)
 
 data_choropleth = dict(type='choropleth',
-                       locations=df_emission_0['country_name'],  #There are three ways to 'merge' your data with the data pre embedded in the map
-                       locationmode='country names',
-                       z=np.log(df_emission_0['CO2_emissions']),
-                       text=df_emission_0['country_name'],
+                       locations=df_covid_0['location'],  #There are three ways to 'merge' your data with the data pre embedded in the map
+                       locationmode='location',
+                       z=np.log(df_covid_0['total_cases']),
+                       text=df_covid_0['location'],
                        colorscale='inferno',
-                       colorbar=dict(title='CO2 Emissions log scaled')
+                       colorbar=dict(title='Total Cases of COVID-19 Worldwide')
                       )
 
 layout_choropleth = dict(geo=dict(scope='world',  #default
